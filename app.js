@@ -1,10 +1,11 @@
 const express = require("express");
+const phonewords = require("phonewords");
 
 const app = express();
 const port = 3001;
 
 app.get("/phoneword/:number", (req, res) => {
-  res.send(req.params.number);
+  res.send(phonewords.numbersToWords(req.params.number));
 });
 
 app.listen(port, () => {
