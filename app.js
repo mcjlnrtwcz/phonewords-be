@@ -8,9 +8,10 @@ app.use(cors());
 const port = 3001;
 
 app.get("/predictions/:number", (req, res) => {
-  const predictions = phonewords.numbersToWords(req.params.number);
   res.send(
-    predictions.filter((prediction) => words.includes(prediction.toLowerCase()))
+    phonewords
+      .numbersToWords(req.params.number)
+      .filter((prediction) => words.includes(prediction.toLowerCase()))
   );
 });
 
